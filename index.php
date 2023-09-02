@@ -1,7 +1,7 @@
 <?php
 /*
 
-WordPress Security Check
+WordPress Security Check :)
 
 This code is intended solely for checking WordPress security and is not meant for unauthorized access to anyone's websites!
 
